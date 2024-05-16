@@ -30,7 +30,7 @@ Description: : NASA's climate change datasets encompass various indicators such 
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
 
-1. Example Issue [#1][i1]
+1. Find two datasets for project [#1][i1]
 2. ...
 
 [i1]: https://github.com/jvalue/made-template/issues/1
