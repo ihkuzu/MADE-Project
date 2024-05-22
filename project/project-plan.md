@@ -14,7 +14,7 @@ Traffic accidents in urban areas like NYC can be influenced by various factors, 
 ## Datasources
 
 ### Datasource1: NYC Traffic Accidents
-* Metadata URL: [https://globalcarbonatlas.org/emissions/carbon-emissions/](https://www.kaggle.com/datasets/mysarahmadbhat/nyc-traffic-accidents)
+* Metadata URL: [aa](https://www.kaggle.com/datasets/mysarahmadbhat/nyc-traffic-accidents)
 * Data URL: https://carbon-atlas-emissions.wedodata.dev/index.php?lang=en#
 * Data Type: CSV
 
