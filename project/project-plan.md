@@ -14,18 +14,18 @@ Traffic accidents in urban areas like NYC can be influenced by various factors, 
 ## Datasources
 
 ### Datasource1: NYC Traffic Accidents
-* Metadata URL: [aa](https://www.kaggle.com/datasets/mysarahmadbhat/nyc-traffic-accidents)
-* Data URL: https://carbon-atlas-emissions.wedodata.dev/index.php?lang=en#
+* Metadata URL: [NYC Traffic Accidents - Metadata](https://www.kaggle.com/datasets/mysarahmadbhat/nyc-traffic-accidents)
+* Data URL: [NYC Traffic Accidents - Data](https://www.kaggle.com/datasets/mysarahmadbhat/nyc-traffic-accidents/data)
 * Data Type: CSV
 
-Description: The Global Carbon Atlas provides comprehensive data on carbon emissions, including emissions by country, sector and fuel type, as well as carbon dioxide concentration levels in the atmosphere. This dataset offers valuable insights into global carbon emissions trends and their drivers.
+Description: This dataset contains information about traffic accidents in New York City, including details about the date, location, and contributing factors of each accident.
 
-### Datasource2: NASA Climate Change Data
-* Metadata URL: https://www.earthdata.nasa.gov/
-* Data URL: https://www.earthdata.nasa.gov/
+### Datasource2: Weather Data for NYC
+* Metadata URL: [NYC Weather - Metadata](https://open-meteo.com/en/docs/historical-weather-api#latitude=40.71&longitude=-74.01&hourly=temperature_2m,precipitation,rain,cloudcover,cloudcover_low,cloudcover_mid,cloudcover_high,windspeed_10m,winddirection_10m)
+* Data URL: [NYC Weather - Data](https://www.kaggle.com/datasets/aadimator/nyc-weather-2016-to-2022?resource=download)
 * Data Type: CSV
 
-Description: : NASA's climate change datasets encompass various indicators such as temperature records, sea level rise measurements and ice melt data. These datasets offer critical information for assessing the impacts of climate change and understanding the underlying mechanisms driving these changes.
+Description: : This dataset includes historical weather data such as temperature, precipitation, wind speed, and other relevant weather conditions for NYC.
 ## Work Packages
 
 <!-- List of work packages ordered sequentially, each pointing to an issue with more details. -->
