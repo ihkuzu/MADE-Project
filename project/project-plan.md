@@ -1,20 +1,20 @@
 # Project Plan
 
 ## Title
-Analyzing Global Carbon Emissions and Their Impact on Climate Change
+The Impact of Weather Conditions on Traffic Accidents in NYC
 
 ## Main Question
 
-What is the connection between how much carbon we release into the air and the signs of climate change we see and how can we use this knowledge to come up with better ways to reduce the impact?
+How do different weather conditions effect the frequency and severity of traffic accidents in NYC?
 
 ## Description
 
-Climate change is a big problem that affects nature, money, and people all around the world. This project wants to study how the carbon we put into the air is linked to changes in the climate. We'll use data from the Global Carbon Atlas and NASA's climate change records to look at different aspects like how carbon emissions are changing, what effects they have on the climate and how different places are affected.
+Traffic accidents in urban areas like NYC can be influenced by various factors, including weather conditions. This project aims to analyze the relationship between weather conditions and traffic accidents in NYC. By using traffic accident data and weather data, we will identify patterns and correlations to understand how different weather conditions contribute to the occurrence and severity of traffic accidents. The findings can provide insights into effective measures to improve road safety under various weather conditions.
 
 ## Datasources
 
-### Datasource1: Global Carbon Atlas
-* Metadata URL: https://globalcarbonatlas.org/emissions/carbon-emissions/
+### Datasource1: NYC Traffic Accidents
+* Metadata URL: [https://globalcarbonatlas.org/emissions/carbon-emissions/](https://www.kaggle.com/datasets/mysarahmadbhat/nyc-traffic-accidents)
 * Data URL: https://carbon-atlas-emissions.wedodata.dev/index.php?lang=en#
 * Data Type: CSV
 
