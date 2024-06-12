@@ -1,0 +1,6 @@
+requests
+zipfile
+pandas
+sqlite3
+unittest
+os
