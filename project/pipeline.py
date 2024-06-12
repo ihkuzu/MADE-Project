@@ -49,7 +49,7 @@ def process_data():
     accidents_df.fillna(0, inplace=True)
     weather_df.fillna(0, inplace=True)
 
-    conn = sqlite3.connect(os.path.join(data_dir, 'nyc_climate_traffic1.db'))
+    conn = sqlite3.connect(os.path.join(data_dir, 'nyc_climate_traffic.db'))
     accidents_df.to_sql('traffic_accidents', conn, if_exists='replace', index=False)
     weather_df.to_sql('weather_data', conn, if_exists='replace', index=False)
     conn.close()
