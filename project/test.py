@@ -8,10 +8,7 @@ class TestPipeline(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """Set up the test environment before running any tests."""
-        # Run the data processing pipeline once for all tests
         process_data()
-
-        # Set up the database connection and cursor for reuse in tests
         cls.db_path = './data/nyc_climate_traffic.db'
         cls.conn = sqlite3.connect(cls.db_path)
         cls.cursor = cls.conn.cursor()
@@ -42,7 +39,6 @@ class TestPipeline(unittest.TestCase):
     def tearDownClass(cls):
         """Clean up after all tests."""
         cls.conn.close()
-        # Remove the database file after all tests
         if os.path.exists(cls.db_path):
             os.remove(cls.db_path)
 
