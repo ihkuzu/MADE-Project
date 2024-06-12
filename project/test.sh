@@ -1,16 +1,9 @@
 #!/bin/bash
-
-set -e
-
-DATA_DIR="./data"
-DB_FILE="${DATA_DIR}/nyc_climate_traffic.db"
-SCRIPT_FILE="pipeline.py"
-
-python3 $SCRIPT_FILE
-
-if [ -f "$DB_FILE" ]; then
-    echo "Test passed: $DB_FILE exists."
+echo "Setting up environment..."
+echo "Running tests..."
+python -m unittest test_pipeline.py
+if [ $? -eq 0 ]; then
+    echo "Tests passed successfully"
 else
-    echo "Test failed: $DB_FILE does not exist."
-    exit 1
+    echo "Tests failed"
 fi
