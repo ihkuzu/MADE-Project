@@ -15,11 +15,13 @@ def download_data(url, filename):
     response = requests.get(url, headers=headers)
     with open(filename, 'wb') as file:
         file.write(response.content)
+    print(f"Downloaded data from {url} to {filename}")
 
 def extract_zip(file_path, extract_to):
     if zipfile.is_zipfile(file_path):
         with zipfile.ZipFile(file_path, 'r') as zip_ref:
             zip_ref.extractall(extract_to)
+        print(f"Extracted {file_path} to {extract_to}")
     else:
         raise zipfile.BadZipFile(f"File {file_path} is not a zip file")
 
@@ -32,27 +34,33 @@ def process_data():
 
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
+        print(f"Created directory {data_dir}")
 
+    print("Starting data download...")
     download_data(traffic_accidents_url, traffic_zip_path)
     download_data(weather_data_url, weather_zip_path)
 
+    print("Starting data extraction...")
     extract_zip(traffic_zip_path, data_dir)
     extract_zip(weather_zip_path, data_dir)
 
+    print("Reading CSV files into pandas dataframes...")
     accidents_df = pd.read_csv(traffic_csv_path)
     weather_df = pd.read_csv(weather_csv_path)
 
-    # Filter weather data for the date range 01/2020 - 08/2020
+    print("Filtering and cleaning data...")
     weather_df['time'] = pd.to_datetime(weather_df['time'])
     weather_df = weather_df[(weather_df['time'] >= '2020-01-01') & (weather_df['time'] < '2020-09-01')]
 
     accidents_df.fillna(0, inplace=True)
     weather_df.fillna(0, inplace=True)
 
+    print("Saving data to SQLite database...")
     conn = sqlite3.connect(os.path.join(data_dir, 'nyc_climate_traffic.db'))
     accidents_df.to_sql('traffic_accidents', conn, if_exists='replace', index=False)
     weather_df.to_sql('weather_data', conn, if_exists='replace', index=False)
     conn.close()
+    print("Data saved to SQLite database successfully.")
 
 if __name__ == '__main__':
     try:
