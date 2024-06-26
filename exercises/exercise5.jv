@@ -37,7 +37,7 @@ pipeline StopsPipeline {
 	}
     block StopsLoader oftype SQLiteLoader {
         table: "stops";
-        file: "./gtfs1.sqlite";
+        file: "./gtfs.sqlite";
     }
 }
 
