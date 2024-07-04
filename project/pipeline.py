@@ -59,6 +59,61 @@ def process_data():
     conn = sqlite3.connect(os.path.join(data_dir, 'nyc_climate_traffic.db'))
     accidents_df.to_sql('traffic_accidents', conn, if_exists='replace', index=False)
     weather_df.to_sql('weather_data', conn, if_exists='replace', index=False)
+    print("Joining and analyzing data...")
+    query = '''
+    WITH Traffic AS (
+        SELECT 
+            [CRASH DATE] as date, 
+            COUNT(*) as accident_count 
+        FROM 
+            traffic_accidents 
+        GROUP BY 
+            [CRASH DATE]
+    ),
+    Weather AS (
+        SELECT 
+            DATE(time) as date,
+            ROUND(AVG([temperature_2m (°C)]), 2) as avg_temperature,
+            ROUND(SUM([precipitation (mm)]), 2) as total_precipitation,
+            ROUND(SUM([rain (mm)]), 2) as total_rain,
+            ROUND(AVG([cloudcover (%)]), 2) as avg_cloudcover,
+            ROUND(AVG([cloudcover_low (%)]), 2) as avg_cloudcover_low,
+            ROUND(AVG([cloudcover_mid (%)]), 2) as avg_cloudcover_mid,
+            ROUND(AVG([cloudcover_high (%)]), 2) as avg_cloudcover_high,
+            ROUND(AVG([windspeed_10m (km/h)]), 2) as avg_windspeed,
+            ROUND(AVG([winddirection_10m (°)]), 2) as avg_winddirection
+        FROM 
+            weather_data
+        GROUP BY 
+            DATE(time)
+    )
+    SELECT 
+        t.date,
+        t.accident_count,
+        w.avg_temperature,
+        w.total_precipitation,
+        w.total_rain,
+        w.avg_cloudcover,
+        w.avg_cloudcover_low,
+        w.avg_cloudcover_mid,
+        w.avg_cloudcover_high,
+        w.avg_windspeed,
+        w.avg_winddirection
+    FROM 
+        Traffic t
+    JOIN 
+        Weather w ON t.date = w.date
+    ORDER BY 
+        t.date;
+    '''
+    with sqlite3.connect(os.path.join(data_dir, 'nyc_climate_traffic.db')) as conn:
+        result_df = pd.read_sql_query(query, conn)
+
+    print("Saving analysis results to a new table in SQLite database...")
+    with sqlite3.connect(os.path.join(data_dir, 'nyc_climate_traffic.db')) as conn:
+        result_df.to_sql('traffic_weather_analysis', conn, if_exists='replace', index=False)
+
+    print("Analysis complete and saved to SQLite database successfully.")
     conn.close()
     print("Data saved to SQLite database successfully.")
 
