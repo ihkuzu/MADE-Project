@@ -6,8 +6,8 @@
 
 How do different weather conditions affect the frequency and severity of traffic accidents in NYC?
 
-https://media.nbcnewyork.com/2023/01/GettyImages-1350721288.jpg?quality=85&strip=all&resize=1200%2C675
 
+![Project Overview](https://media.nbcnewyork.com/2023/01/GettyImages-1350721288.jpg?quality=85&strip=all&resize=1200%2C675)
 Source: https://www.nbcnewyork.com/news/local/nycs-traffic-isnt-worst-in-the-world-or-even-the-us-see-what-cities-have-it-worse/4042873/
 
 # Summary 
